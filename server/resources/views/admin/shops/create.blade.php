@@ -58,11 +58,13 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.shop.fields.photos_helper') }}</span>
             </div>
+
+            {{-- 検索窓とマップ --}}
             <div class="form-group">
                 <label for="address">{{ trans('cruds.shop.fields.address') }}</label>
                 <input class="form-control map-input {{ $errors->has('address') ? 'is-invalid' : '' }}" type="text" name="address" id="address" value="{{ old('address') }}">
-                <input type="hidden" name="latitude" id="address-latitude" value="{{ old('latitude') ?? '0' }}" />
-                <input type="hidden" name="longitude" id="address-longitude" value="{{ old('longitude') ?? '0' }}" />
+                <input type="hidden" name="latitude" id="address-latitude" value="{{ old('latitude') ?? '35.67' }}" />
+                <input type="hidden" name="longitude" id="address-longitude" value="{{ old('longitude') ?? '139.75' }}" />
                 @if($errors->has('address'))
                     <div class="invalid-feedback">
                         {{ $errors->first('address') }}
@@ -136,7 +138,7 @@
 @endsection
 
 @section('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize&language=en&region=GB" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize&language=ja&region=JP" async defer></script>
 <script src="/js/mapInput.js"></script>
 <script>
     var uploadedPhotosMap = {}
