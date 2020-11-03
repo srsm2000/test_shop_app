@@ -91,7 +91,7 @@
 <script defer>
 	function initialize() {
 		var mapOptions = {
-			zoom: 12,
+			zoom: 13,
 			minZoom: 6,
 			maxZoom: 17,
 			zoomControl:true,

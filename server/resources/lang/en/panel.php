@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Shops Map',
+    'site_title' => 'OOZE',
 ];

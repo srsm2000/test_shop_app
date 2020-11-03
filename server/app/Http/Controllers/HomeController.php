@@ -14,9 +14,9 @@ class HomeController extends Controller
             ->searchResults()
             ->paginate(9);
 
-        $mapShops = $shops->makeHidden(['active', 'created_at', 'updated_at', 'deleted_at', 'created_by_id', 'photos', 'media']);
-        $latitude = $shops->count() && (request()->filled('category') || request()->filled('search')) ? $shops->average('latitude') : 51.5073509;
-        $longitude = $shops->count() && (request()->filled('category') || request()->filled('search')) ? $shops->average('longitude') : -0.12775829999998223;
+        $mapShops = $shops->makeHidden(['active', 'created_at', 'updated_at', 'deleted_at', 'photos', 'media']);
+        $latitude = $shops->count() && (request()->filled('category') || request()->filled('search')) ? $shops->average('latitude') : 35.67;
+        $longitude = $shops->count() && (request()->filled('category') || request()->filled('search')) ? $shops->average('longitude') : 139.75;
 
         return view('home', compact('categories', 'shops', 'mapShops', 'latitude', 'longitude'));
     }
@@ -27,4 +27,10 @@ class HomeController extends Controller
 
         return view('shop', compact('shop'));
     }
+
+    public function top_page()
+    {
+        return view('top_page');
+    }
+
 }
