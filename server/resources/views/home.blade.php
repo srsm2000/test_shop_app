@@ -15,12 +15,19 @@
                                     <div class="clearfix geodir-loc-bar-in">
                                         <div class="geodir-search">
                                             <div class='gd-search-input-wrapper gd-search-field-cpt gd-search-field-taxonomy gd-search-field-categories'>
-                                                <select name="category" class="cat_select">
-                                                    <option value="">Category</option>
-                                                    @foreach($categories as $category)
-                                                        <option value="{{ $category->id }}"{{ old('category', request()->input('category')) == $category->id ? ' selected' : '' }}>{{ $category->name }}</option>
-                                                    @endforeach
-                                                </select>
+                                                <?php
+                                                    $num = 1;
+                                                ?>
+                                                @foreach($categories as $category)
+                                                    <?php
+                                                        $input_name = "category" . $num;
+                                                    ?>
+                                                <input type="checkbox" name={{ $input_name }} id="category" value="{{ $category->id }}">
+                                                <label for="category">{{ $category->name }}</label>
+                                                    <?php
+                                                        $num = $num + 1;
+                                                    ?>
+                                                @endforeach
                                             </div>
                                             <div class='gd-search-input-wrapper gd-search-field-search'> <span class="geodir-search-input-label"><i class="fas fa-search gd-show"></i><i class="fas fa-times geodir-search-input-label-clear gd-hide" title="Clear field"></i></span>
                                                 <input class="search_text gd_search_text" name="search" value="{{ old('search', request()->input('search')) }}" type="text" placeholder="Search for" aria-label="Search for" autocomplete="off" />

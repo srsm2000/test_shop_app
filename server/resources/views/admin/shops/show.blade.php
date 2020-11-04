@@ -13,6 +13,19 @@
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
+            <div>
+                @if (User::is_favarite($user->id))
+                    {{-- お気に入りボタンのフォーム --}}
+                    {!! Form::open(['route' => ['user.unfavorite', $user->id], 'method' => 'delete']) !!}
+                    {!! Form::submit('Unfavorite', ['class' => "btn btn-danger btn-block"]) !!}
+                    {!! Form::close() !!}
+                @else
+                    {{-- お気に入り外すボタンのフォーム --}}
+                    {!! Form::open(['route' => ['user.favorite', $user->id]]) !!}
+                    {!! Form::submit('Follow', ['class' => "btn btn-primary btn-block"]) !!}
+                    {!! Form::close() !!}
+                @endif
+            </div>
             <table class="table table-bordered table-striped">
                 <tbody>
                     <tr>

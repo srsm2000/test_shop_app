@@ -99,9 +99,24 @@ class Shop extends Model implements HasMedia
                         ->orWhere('address', 'LIKE', "%$search%");
                 });
             })
-            ->when(request()->filled('category'), function($query) {
+            ->when(request()->filled('category1'), function($query) {
                 $query->whereHas('categories', function($query) {
-                    $query->where('id', request()->input('category'));
+                    $query->where('id', request()->input('category1'));
+                });
+            })
+            ->when(request()->filled('category2'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category2'));
+                });
+            })
+            ->when(request()->filled('category3'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category3'));
+                });
+            })
+            ->when(request()->filled('category4'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category4'));
                 });
             });
     }
