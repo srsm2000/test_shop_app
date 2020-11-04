@@ -13,6 +13,7 @@ use App\Shop;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use APP\User;
 
 class ShopsController extends Controller
 {
