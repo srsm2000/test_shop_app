@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "537a997dbd265168e13d54a34c0aca10",
+    "content-hash": "2e63349ceedea0c1637ad827113a2539",
     "packages": [
         {
             "name": "brick/math",
@@ -501,33 +501,32 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.11.0",
+            "version": "2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "0d4e1a8b29dd987704842f0465aded378f441dca"
+                "reference": "c6d37b4c42aaa3c3ee175f05eca68056f4185646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0d4e1a8b29dd987704842f0465aded378f441dca",
-                "reference": "0d4e1a8b29dd987704842f0465aded378f441dca",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/c6d37b4c42aaa3c3ee175f05eca68056f4185646",
+                "reference": "c6d37b4c42aaa3c3ee175f05eca68056f4185646",
                 "shasum": ""
             },
             "require": {
                 "doctrine/cache": "^1.0",
                 "doctrine/event-manager": "^1.0",
                 "ext-pdo": "*",
-                "php": "^7.3"
+                "php": "^7.3 || ^8"
             },
             "require-dev": {
                 "doctrine/coding-standard": "^8.1",
                 "jetbrains/phpstorm-stubs": "^2019.1",
-                "nikic/php-parser": "^4.4",
                 "phpstan/phpstan": "^0.12.40",
-                "phpunit/phpunit": "^9.3",
+                "phpunit/phpunit": "^9.4",
                 "psalm/plugin-phpunit": "^0.10.0",
                 "symfony/console": "^2.0.5|^3.0|^4.0|^5.0",
-                "vimeo/psalm": "^3.14.2"
+                "vimeo/psalm": "^3.17.2"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
@@ -605,7 +604,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-20T23:24:53+00:00"
+            "time": "2020-10-22T17:26:24+00:00"
         },
         {
             "name": "doctrine/event-manager",
