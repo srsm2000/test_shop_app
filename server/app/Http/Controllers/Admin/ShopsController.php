@@ -20,7 +20,7 @@ class ShopsController extends Controller
 
     public function index()
     {
-        abort_if(Gate::denies('shop_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('shop_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $shops = Shop::all();
 
@@ -29,7 +29,7 @@ class ShopsController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('shop_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('shop_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $categories = Category::all()->pluck('name', 'id');
         $days = Day::all();
