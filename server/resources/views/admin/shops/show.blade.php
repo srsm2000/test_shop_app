@@ -14,17 +14,23 @@
                 </a>
             </div>
             <div>
-                @if (User::is_favarite($user->id))
-                    {{-- お気に入りボタンのフォーム --}}
-                    {!! Form::open(['route' => ['user.unfavorite', $user->id], 'method' => 'delete']) !!}
-                    {!! Form::submit('Unfavorite', ['class' => "btn btn-danger btn-block"]) !!}
-                    {!! Form::close() !!}
+                @if (Auth::check())
+                @if ($favorite)
+                  {{ Form::model($shop, array('action' => array('FavoritesController@destroy', $shop->id, $favorite->id))) }}
+                    <button type="submit">
+                      <img src="/images/icon_heart_red.svg">
+                      Favorite
+                    </button>
+                  {!! Form::close() !!}
                 @else
-                    {{-- お気に入り外すボタンのフォーム --}}
-                    {!! Form::open(['route' => ['user.favorite', $user->id]]) !!}
-                    {!! Form::submit('Follow', ['class' => "btn btn-primary btn-block"]) !!}
-                    {!! Form::close() !!}
+                  {{ Form::model($shop, array('action' => array('FavoritesController@store', $shop->id))) }}
+                    <button type="submit">
+                      <img src="/images/icon_heart.svg">
+                      Favorite
+                    </button>
+                  {!! Form::close() !!}
                 @endif
+              @endif
             </div>
             <table class="table table-bordered table-striped">
                 <tbody>

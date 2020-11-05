@@ -12,9 +12,9 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('top_page', 'HomeController@top_page')->name('top_page');
 Route::get('shop/{shop}', 'HomeController@show')->name('shop');
 
-// favorite機能
-Route::post('favorite', 'FavoriteController@store')->name('user.favorite');
-Route::delete('unfavorite', 'FavoriteController@destroy')->name('user.unfavorite');
+// お気に入り機能
+Route::post('/posts/{post}/likes', 'LikesController@store');
+Route::post('/posts/{post}/likes/{like}', 'LikesController@destroy');
 
 Auth::routes();
 
