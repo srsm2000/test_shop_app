@@ -120,4 +120,21 @@ class Shop extends Model implements HasMedia
                 });
             });
     }
+
+    // お気に入り登録ここから
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany('App\Favorite');
+    }
+
+    public function like_by()
+    {
+        return Favorite::where('user_id', Auth::user()->id)->first();
+    }
+    // お気に入り登録ここまで
 }

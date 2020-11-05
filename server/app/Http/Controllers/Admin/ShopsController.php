@@ -124,7 +124,9 @@ class ShopsController extends Controller
         $days = Day::all();
         $shop->load('categories', 'created_by');
 
-        return view('admin.shops.show', compact('shop', 'days'));
+        $favorite = $shop->favorites()->where('user_id', Auth::user()->id)->first();
+
+        return view('admin.shops.show', compact('shop', 'days', 'favorite'));
     }
 
     public function destroy(Shop $shop)
@@ -142,4 +144,6 @@ class ShopsController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+
 }

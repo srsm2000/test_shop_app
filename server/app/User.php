@@ -86,78 +86,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
-    // 中略
-    /**
-    * このユーザがお気に入りしてる1以上のshop。
-    */
-    public function favoritesShops()
+    // お気に入り登録ここから
+    public function likes()
     {
-        return $this->belongsToMany(User::class, 'favorites', 'user_id', 'shop_id')->withTimestamps();
+        return $this->hasMany(Favorite::class);
     }
-
-    /**
-    * shopをお気に入りにしてる1以上のユーザ。
-    */
-    public function favoritesUser()
-    {
-        return $this->belongsToMany(User::class, 'favorites', 'shop_id', 'user_id')->withTimestamps();
-    }
-
-    /**
-    * $shop_idで指定されたshopをお気に入り登録する。
-    *
-    * @param int $userId
-    * @return bool
-    */
-    public function favorite($userId)
-    {
-        // すでにお気に入りしているかの確認
-        $exist = $this->is_favorite($shopId);
-        // 相手が自分自身かどうかの確認
-        $its_me = $this->id == $shopId;
-
-        if ($exist || $its_me) {
-        // すでにお気に入り登録していればお気に入り登録を外す
-            return false;
-        } else {
-    // お気に入り登録していなければお気に入り登録をする
-            $this->favorite()->attach($userId);
-            return true;
-        }
-
-    }
-    /**
-    * $shop_idで指定されたshopをお気に入り登録を外す。
-    *
-    * @param int $userId
-    * @return bool
-    */
-    public function unfavorite($userId)
-    {
-        // すでにフォローしているかの確認
-        $exist = $this->is_favorite($userId);
-        // 相手が自分自身かどうかの確認
-        $its_me = $this->id == $userId;
-
-        if ($exist && !$its_me) {
-            // すでにフォローしていればフォローを外す
-            $this->favorite()->detach($shopId);
-            return true;
-        } else {
-            // 未フォローであれば何もしない
-            return false;
-        }
-    }
-
-    /**
-    * 指定された $userIdのユーザをこのユーザがフォロー中であるか調べる。フォロー中ならtrueを返す。
-    *
-    * @param int $userId
-    * @return bool
-    */
-    public function is_favorite($userId)
-    {
-    // フォロー中ユーザの中に $userIdのものが存在するか
-        return $this->favorite()->where('shop_id', $userId)->exists();
-    }
+    // お気に入り登録ここまで
 }
