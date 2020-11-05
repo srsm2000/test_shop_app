@@ -12,13 +12,68 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
+        Category::create([
+            'name' => 'アウトドア'
+        ]);
 
-        foreach(range(1,50) as $id)
-        {
-            Category::create([
-                'name' => $faker->unique()->sentence(3)
-            ]);
-        }
+        Category::create([
+            'name' => 'スポーツ/アスレジャー'
+        ]);
+
+        Category::create([
+            'name' => '古着'
+        ]);
+
+        Category::create([
+            'name' => 'ファストファッション'
+        ]);
+
+        Category::create([
+            'name' => 'ラグジュアリー'
+        ]);
+
+        Category::create([
+            'name' => 'デザイナーズ'
+        ]);
+
+        Category::create([
+            'name' => 'ラグジュアリー'
+        ]);
+
+        Category::create([
+            'name' => 'ストリート'
+        ]);
+
+        Category::create([
+            'name' => 'フォーマル'
+        ]);
+
+        Category::create([
+            'name' => 'モード'
+        ]);
+
+        Category::create([
+            'name' => 'アメカジ'
+        ]);
+
+        Category::create([
+            'name' => 'アクセサリー'
+        ]);
+
+        Category::create([
+            'name' => 'シューズ'
+        ]);
+
+        Category::create([
+            'name' => '小物'
+        ]);
+
+        Category::create([
+            'name' => 'ドメスティック'
+        ]);
+
+        Category::create([
+            'name' => 'インポート'
+        ]);
     }
 }
