@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Favorite;
+use App\Shop;
+use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
@@ -18,7 +21,7 @@ class FavoriteController extends Controller
         $shop = Shop::findOrFail($shopId);
 
         return redirect()
-             ->action('shopsController@show', $shop->id);
+             ->action('Admin\ShopsController@show', $shop->id);
     }
 
     public function destroy($shopId, $favoriteId) {
@@ -26,6 +29,6 @@ class FavoriteController extends Controller
         $shop->favorite_by()->findOrFail($favoriteId)->delete();
 
         return redirect()
-                ->action('shopsController@show', $shop->id);
+                ->action('Admin\ShopsController@show', $shop->id);
     }
 }

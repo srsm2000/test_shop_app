@@ -14,6 +14,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use APP\User;
+use Illuminate\Support\Facades\Auth;
 
 class ShopsController extends Controller
 {

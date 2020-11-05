@@ -16,17 +16,17 @@
             <div>
                 @if (Auth::check())
                 @if ($favorite)
-                  {{ Form::model($shop, array('action' => array('FavoritesController@destroy', $shop->id, $favorite->id))) }}
-                    <button type="submit">
-                      <img src="/images/icon_heart_red.svg">
-                      Favorite
+                  {{ Form::model($shop, array('action' => array('FavoriteController@destroy', $shop->id, $favorite->id))) }}
+                    <button type="submit" class="btn btn-default">
+                      {{-- <img src="/images/icon_heart_red.svg"> --}}
+                      お気に入り解除
                     </button>
                   {!! Form::close() !!}
                 @else
-                  {{ Form::model($shop, array('action' => array('FavoritesController@store', $shop->id))) }}
-                    <button type="submit">
-                      <img src="/images/icon_heart.svg">
-                      Favorite
+                  {{ Form::model($shop, array('action' => array('FavoriteController@store', $shop->id))) }}
+                    <button type="submit" class="btn btn-default">
+                      {{-- <img src="/images/icon_heart.svg"> --}}
+                      お気に入り登録
                     </button>
                   {!! Form::close() !!}
                 @endif
@@ -113,6 +113,10 @@
                     </tr>
                 </tbody>
             </table>
+            <div>
+                <p>お気に入りしている人</p>
+                <a>Favorite
+            </div>
             <div class="form-group">
                 <a class="btn btn-default" href="{{ route('admin.shops.index') }}">
                     {{ trans('global.back_to_list') }}
