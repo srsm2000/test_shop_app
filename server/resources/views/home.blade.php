@@ -1,38 +1,34 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container">
+<div class="container" style="background-color: #ffffff">
     <div class="row">
         <div class="col-md-12">
             <div class="content-box content-single">
                 <article class="post-8 page type-page status-publish hentry">
                     <header>
-                        <h1 class="entry-title">{{ request()->filled('search') || request()->filled('category') ? 'Search results' : 'All Shops' }}</h1></header>
+                        <h1 class="entry-title" style="color: #000000; font-family: Helvetica Neue;">{{ request()->filled('search') || request()->filled('category') ? 'Search results' : 'All Shops' }}</h1></header>
                     <div class="entry-content entry-summary">
                         <div class="geodir-search-container geodir-advance-search-default" data-show-adv="default">
                             <form class="geodir-listing-search gd-search-bar-style" name="geodir-listing-search" action="{{ route('home') }}" method="get">
                                 <div class="geodir-loc-bar">
                                     <div class="clearfix geodir-loc-bar-in">
                                         <div class="geodir-search">
-                                            <div class='gd-search-input-wrapper gd-search-field-cpt gd-search-field-taxonomy gd-search-field-categories'>
-                                                <?php
-                                                    $num = 1;
-                                                ?>
+                                            <div class='gd-search-input-wrapper gd-search-field-cpt gd-search-field-taxonomy gd-search-field-categories' style="color: #000000">
+                                                <div class='gd-search-input-wrapper gd-search-field-search'> <span class="geodir-search-input-label"><i class="fas fa-search gd-show"></i><i class="fas fa-times geodir-search-input-label-clear gd-hide" title="Clear field"></i></span>
+                                                    <input class="search_text gd_search_text" name="search" value="{{ old('search', request()->input('search')) }}" type="text" placeholder="Search for" aria-label="Search for" autocomplete="off" />
+                                                </div>
+                                                <button class="geodir_submit_search" data-title="fas fa-search" aria-label="fas fa-search" style="background-color: #000000; border-color: #000000;"><i class="fas fas fa-search" aria-hidden="true"></i><span class="sr-only">Search</span></button><br>
+                                                    <?php $num = 1; ?>
                                                 @foreach($categories as $category)
-                                                    <?php
-                                                        $input_name = "category" . $num;
-                                                    ?>
-                                                <input type="checkbox" name={{ $input_name }} id="category" value="{{ $category->id }}">
-                                                <label for="category">{{ $category->name }}</label>
-                                                    <?php
-                                                        $num = $num + 1;
-                                                    ?>
+                                                    <?php $input_name = "category" . $num; ?>
+                                                <div style="display:inline-block;">
+                                                    <input type="checkbox" name={{ $input_name }} id="category" value="{{ $category->id }}" style="vertical-align:middle;" >
+                                                    <label for="category">{{ $category->name }}</label>
+                                                </div>
+                                                    <?php $num = $num + 1; ?>
                                                 @endforeach
                                             </div>
-                                            <div class='gd-search-input-wrapper gd-search-field-search'> <span class="geodir-search-input-label"><i class="fas fa-search gd-show"></i><i class="fas fa-times geodir-search-input-label-clear gd-hide" title="Clear field"></i></span>
-                                                <input class="search_text gd_search_text" name="search" value="{{ old('search', request()->input('search')) }}" type="text" placeholder="Search for" aria-label="Search for" autocomplete="off" />
-                                            </div>
-                                            <button class="geodir_submit_search" data-title="fas fa-search" aria-label="fas fa-search"><i class="fas fas fa-search" aria-hidden="true"></i><span class="sr-only">Search</span></button>
                                         </div>
                                     </div>
                                 </div>
@@ -59,10 +55,10 @@
                                         </div>
                                         <div class="gd-list-item-right ">
                                             <div class="geodir-post-title">
-                                                <h2 class="geodir-entry-title"> <a href="{{ route('shop', $shop->id) }}" title="View: {{ $shop->name }}">{{ $shop->name }}</a></h2></div>
+                                                <h2 class="geodir-entry-title"> <a href="{{ route('shop', $shop->id) }}" title="View: {{ $shop->name }}" style="color: #000000;">{{ $shop->name }}</a></h2></div>
                                             @foreach($shop->categories as $category)
                                                 <div class="gd-badge-meta gd-badge-alignleft" title="{{ $category->name }}">
-                                                    <div class="gd-badge" style="background-color:#ffb100;color:#ffffff;"><i class="fas fa-certificate"></i> <span class='gd-secondary'>{{ $category->name }}</span></div>
+                                                    <div class="gd-badge" style="background-color:#BDBBB0; color:#ffffff;"><i class="fas fa-certificate"></i> <span class='gd-secondary'>{{ $category->name }}</span></div>
                                                 </div>
                                             @endforeach
                                             @if($shop->days->count())
@@ -75,7 +71,7 @@
                                                 </div>
                                             @endif
                                             <div class="geodir-post-content-container">
-                                                <div class="geodir_post_meta  geodir-field-post_content" style='max-height:120px;overflow:hidden;'>{{ $shop->description }} <a href='{{ route('shop', $shop->id) }}' class='gd-read-more  gd-read-more-fade'>Read more...</a></div>
+                                                <div class="geodir_post_meta  geodir-field-post_content" style='max-height:120px;overflow:hidden;'>{{ $shop->description }} <a href='{{ route('shop', $shop->id) }}' class='gd-read-more  gd-read-more-fade' style="color: #000000;">Read more...</a></div>
                                             </div>
                                         </div>
                                     </li>

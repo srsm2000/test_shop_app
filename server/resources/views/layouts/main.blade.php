@@ -16,7 +16,7 @@
 </head>
 
 <body class="archive post-type-archive post-type-archive-gd_place geodir_custom_posts geodir-page geodir-archive geodir_advance_search gd-map-auto">
-    <div id="ds-container">
+    <div id="ds-container" style="background-color: #ffffff;">
         @include('partials.header')
 
         @includeWhen(request()->is('/'), 'partials.map')

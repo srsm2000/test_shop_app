@@ -3,7 +3,7 @@
 @can('shop_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.shops.create") }}">
+            <a class="btn btn-success" href="{{ route("admin.shops.create") }}" style="background-color: #000000; border-color: #000000;">
                 {{ trans('global.add') }} {{ trans('cruds.shop.title_singular') }}
             </a>
         </div>
@@ -59,7 +59,7 @@
                             </td>
                             <td>
                                 @foreach($shop->categories as $key => $item)
-                                    <span class="badge badge-info">{{ $item->name }}</span>
+                                    <span class="badge badge-info" style="background-color: #5D5E60;">{{ $item->name }}</span>
                                 @endforeach
                             </td>
                             <td>
@@ -78,7 +78,7 @@
                             </td>
                             <td>
                                 @can('shop_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.shops.show', $shop->id) }}">
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.shops.show', $shop->id) }}" style="background-color: #5D5E60; border-color: #5D5E60;">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
