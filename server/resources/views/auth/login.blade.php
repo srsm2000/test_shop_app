@@ -4,9 +4,9 @@
     <div class="col-md-6">
         <div class="card mx-4">
             <div class="card-body p-4">
-                <h1>{{ trans('panel.site_title') }}</h1>
+                <h1 style="font-family: Helvetica Neue; font-weight: bold;">{{ trans('panel.site_title') }}</h1>
 
-                <p class="text-muted">{{ trans('global.login') }}</p>
+                <p class="text-muted"><a style="color: #000000">{{ trans('global.login') }}</a></p>
 
                 @if(session('status'))
                     <div class="alert alert-success" role="alert">
@@ -58,17 +58,17 @@
 
                     <div class="row">
                         <div class="col-6">
-                            <button type="submit" class="btn btn-primary px-4">
+                            <button type="submit" class="btn btn-primary px-4" style="background-color: #000000; border-color: #000000">
                                 {{ trans('global.login') }}
                             </button>
                         </div>
                         <div class="col-6 text-right">
                             @if(Route::has('password.request'))
-                                <a class="btn btn-link px-0" href="{{ route('password.request') }}">
+                                <a class="btn btn-link px-0" href="{{ route('password.request') }}" style="color: #000000"> 
                                     {{ trans('global.forgot_password') }}
                                 </a><br>
                             @endif
-                            <a class="btn btn-link px-0" href="{{ route('register') }}">
+                            <a class="btn btn-link px-0" href="{{ route('register') }}" style="color: #000000">
                                 {{ trans('global.register') }}
                             </a>
                         </div>
