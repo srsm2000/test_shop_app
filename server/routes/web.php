@@ -13,8 +13,8 @@ Route::get('top_page', 'HomeController@top_page')->name('top_page');
 Route::get('shop/{shop}', 'HomeController@show')->name('shop');
 
 // お気に入り機能
-Route::post('/posts/{post}/favorites', 'FavoriteController@store');
-Route::post('/posts/{post}/favorites/{favorite}', 'FavoriteController@destroy');
+Route::post('/posts/{shop}/favorites', 'FavoriteController@store');
+Route::post('/posts/{shop}/favorites/{favorite}', 'FavoriteController@destroy');
 
 Auth::routes();
 
@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('roles', 'RolesController');
 
     // Users
+    // Route::get('users/{user}', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
 

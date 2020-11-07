@@ -83,4 +83,13 @@ class UsersController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function favorited_shop(User $user)
+    {
+        
+
+        $user->load('roles');
+
+        return view('admin.users.show', compact('user'));
+    }
 }

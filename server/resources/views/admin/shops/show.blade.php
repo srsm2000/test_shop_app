@@ -115,7 +115,9 @@
             </table>
             <div>
                 <p>お気に入りしている人</p>
-                <a>Favorite
+                @if ($favorite_users_ids)
+                    <a href='{{ url('admin/users', $favorite_users->id) }}'>{{ $favorite_users->name }}</a>
+                @endif
             </div>
             <div class="form-group">
                 <a class="btn btn-default" href="{{ route('admin.shops.index') }}">
