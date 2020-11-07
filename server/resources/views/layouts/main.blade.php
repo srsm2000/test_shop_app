@@ -12,6 +12,7 @@
     <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:400,700' type='text/css' />
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.11.2/css/all.css?wpfas=true' type='text/css' />
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css?wpfas=true' type='text/css' />
+    <link href="{{ asset('css/restyle.css') }}" rel="stylesheet" />
     @yield('styles')
 </head>
 
