@@ -91,5 +91,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Favorite::class);
     }
+
+    public function followed_shop()
+    {
+        return Favorite::where('shop_id', \Auth::user()->id)->first();
+    }
     // お気に入り登録ここまで
 }

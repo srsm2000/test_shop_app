@@ -134,7 +134,14 @@ class Shop extends Model implements HasMedia
 
     public function favorite_by()
     {
-        return Favorite::where('user_id', \Auth::user()->id)->first();
+        return Favorite::where('user_id', \Auth::user()->id);
     }
+
+    public function favorite_user($favorite_user_id)
+    {
+        return User::where('id', $favorite_user_id->favorite_by()->id)->name;
+    }
+
+    
     // お気に入り登録ここまで
 }
