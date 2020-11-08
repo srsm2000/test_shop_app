@@ -21,14 +21,14 @@ class ShopUserController extends Controller
         $shop = Shop::findOrFail($shopId);
 
         return redirect()
-             ->action('Admin\ShopsController@show', $shop->id);
+             ->action('HomeController@show', $shop->id);
     }
 
-    public function destroy($shopId, $shopUserId) {
-        $shop = Shop::findOrFail($shopId);
-        $shop->favorite_by()->findOrFail($shopUserId)->delete();
+    public function destroy($shopId, $userId) {
+        ShopUser::where('shop_id', $shopId)->where('user_id', $userId)->delete();
+        // $shop->relationshipWithUsers->where('user_id', $userId)->delete;
 
         return redirect()
-                ->action('Admin\ShopsController@show', $shop->id);
+                ->action('HomeController@show', $shopId);
     }
 }

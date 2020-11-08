@@ -48,6 +48,25 @@
                                     <li id="post_contentTab" style="display: none;"><span id="post_content"></span>
                                         <div id="geodir-tab-content-post_content" class="hash-offset"></div>
                                         <div class="geodir-post-meta-container">
+                                            <div>
+                                                @if (Auth::check())
+                                                @if ($favorite)
+                                                  {{ Form::model($shop, array('action' => array('ShopUserController@destroy', $shop->id, $favorite->id))) }}
+                                                    <button type="submit" class="btn btn-default">
+                                                      {{-- <img src="/images/icon_heart_red.svg"> --}}
+                                                      Favoriteをやめる
+                                                    </button>
+                                                  {!! Form::close() !!}
+                                                @else
+                                                  {{ Form::model($shop, array('action' => array('ShopUserController@store', $shop->id))) }}
+                                                    <button type="submit" class="btn btn-default">
+                                                      {{-- <img src="/images/icon_heart.svg"> --}}
+                                                      Favoriteする
+                                                    </button>
+                                                  {!! Form::close() !!}
+                                                @endif
+                                              @endif
+                                            </div>
                                             <div class="geodir_post_meta  geodir-field-post_content">
                                                 <p>Address: {{ $shop->address }}</p>
                                                 <p>Description: {{ $shop->description }}</p>
@@ -95,6 +114,18 @@
                                         </li>
                                     @endif
                                 </ul>
+                            </div>
+                            <div>
+                                <p>Favoriteしているユーザー</p>
+                                @foreach($favorite_users as $favorite_user)
+                                {{-- {{ dd($favorite_user, $favorite_users ) }} --}}
+                                    <a href='{{ url('admin/users', $favorite_user->id) }}'>{{ $favorite_user->name }}</a>
+                                @endforeach
+                            </div>
+                            <div class="form-group">
+                                <a class="btn btn-default" href="{{ route('admin.shops.index') }}">
+                                    {{ trans('global.back_to_list') }}
+                                </a>
                             </div>
                         </div>
                         <div class="geodir-single-taxonomies-container">
