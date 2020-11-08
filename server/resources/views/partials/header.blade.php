@@ -11,6 +11,7 @@
                     <li class="gd-menu-item menu-item menu-item-type-post_type_archive"><a href="{{ route('login') }}" style="color: #000000;">Login</a></li>
                     <li class="gd-menu-item menu-item menu-item-type-post_type_archive"><a href="{{ route('register') }}" style="color: #000000;">Register</a></li>
                 @else
+                    <li class="gd-menu-item menu-item menu-item-type-post_type_archive"><a href="{{ route('admin.users.show', \Auth::user()->id)}}" style="color: #000000;">Profile</a></li>
                     <li class="gd-menu-item menu-item menu-item-type-post_type_archive"><a href="{{ route('admin.shops.index') }}" style="color: #000000;">Manage Shops</a></li>
                     <li class="gd-menu-item menu-item menu-item-type-post_type_archive"><a href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit();" style="color: #000000;">Logout</a></li>
                     <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
