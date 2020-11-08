@@ -1,0 +1,52 @@
+.btn-danger {
+    background-color: #BEB2C8;
+    border-color: #BEB2C8;
+    font-family: "Helvetica Neue";
+}
+
+.btn-danger:hover {
+    background-color: #55BCC9;
+    border-color: #55BCC9;
+}
+
+.btn-info {
+    background-color: #BDBBB0;
+    border-color: #BDBBB0;
+    font-family: "Helvetica Neue";
+}
+
+.btn-info:hover {
+    background-color: #55BCC9;
+    border-color: #55BCC9;
+    color: #ffffff;
+}
+
+.btn-primary {
+    background-color: #8A897C;
+    font-family: "Helvetica Neue";
+}
+
+.btn-default {
+    font-family: "Helvetica Neue";
+}
+
+.sorting {
+    font-family: "Helvetica Neue";
+}
+
+.sorting_desc {
+    font-family: "Helvetica Neue";
+}
+
+.page-link {
+    color: #000000;
+}
+
+.nav-icon::before {
+    color: #ffffff;
+}
+
+.nav-link:hover {
+    background-color: #55BCC9;
+    border-color: #55BCC9;
+}
