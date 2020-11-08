@@ -94,3 +94,7 @@ p {
 .btn:not(:disabled):not(.disabled) {
     color: #ffffff;
 }
+
+.site-title-no-desc {
+    padding-top: 12px;
+}
