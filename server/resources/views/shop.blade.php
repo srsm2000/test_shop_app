@@ -115,6 +115,18 @@
                                     @endif
                                 </ul>
                             </div>
+                            <div>
+                                <p>Favoriteしているユーザー</p>
+                                @foreach($favorite_users as $favorite_user)
+                                {{-- {{ dd($favorite_user, $favorite_users ) }} --}}
+                                    <a href='{{ url('admin/users', $favorite_user->id) }}'>{{ $favorite_user->name }}</a>
+                                @endforeach
+                            </div>
+                            <div class="form-group">
+                                <a class="btn btn-default" href="{{ route('admin.shops.index') }}">
+                                    {{ trans('global.back_to_list') }}
+                                </a>
+                            </div>
                         </div>
                         <div class="geodir-single-taxonomies-container">
                             <div class="geodir-pos_navigation clearfix">

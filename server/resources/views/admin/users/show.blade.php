@@ -62,7 +62,7 @@
             <div>
                 <p>お気に入りしている店</p>
                 @foreach($favorite_shops as $favorite_shop)
-                    <a href='{{ url('admin/shops', $favorite_shop->id) }}'>{{ $favorite_shop->name }}</a>
+                    <a href='{{ url('shops', $favorite_shop->id) }}'>{{ $favorite_shop->name }}</a>
                 @endforeach
             </div>
             <div class="form-group">

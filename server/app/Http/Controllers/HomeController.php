@@ -28,7 +28,10 @@ class HomeController extends Controller
         // お気に入りボタン用
         $favorite = $shop->favoriteUsers()->where('user_id', Auth::user()->id)->first();
 
-        return view('shop', compact('shop', 'favorite'));
+        // この店をお気に入りしているユーザーidを全てを取得
+        $favorite_users = $shop->favoriteUsers;
+
+        return view('shop', compact('shop', 'favorite', 'favorite_users'));
     }
 
     public function top_page()
