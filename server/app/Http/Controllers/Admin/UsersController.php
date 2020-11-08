@@ -65,7 +65,9 @@ class UsersController extends Controller
 
         $user->load('roles');
 
-        return view('admin.users.show', compact('user'));
+        $favorite_shops = $user->favoriteShops;
+
+        return view('admin.users.show', compact('user', 'favorite_shops'));
     }
 
     public function destroy(User $user)

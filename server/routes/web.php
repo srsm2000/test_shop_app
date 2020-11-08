@@ -13,8 +13,8 @@ Route::get('top_page', 'HomeController@top_page')->name('top_page');
 Route::get('shop/{shop}', 'HomeController@show')->name('shop');
 
 // お気に入り機能
-Route::post('/posts/{shop}/favorites', 'FavoriteController@store');
-Route::post('/posts/{shop}/favorites/{favorite}', 'FavoriteController@destroy');
+Route::post('/posts/{shop}/favorites', 'ShopUserController@store');
+Route::post('/posts/{shop}/favorites/{favorite}', 'ShopUserController@destroy');
 
 Auth::routes();
 

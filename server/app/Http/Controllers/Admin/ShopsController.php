@@ -10,12 +10,13 @@ use App\Http\Requests\MassDestroyShopRequest;
 use App\Http\Requests\StoreShopRequest;
 use App\Http\Requests\UpdateShopRequest;
 use App\Shop;
-use App\Favorite;
+use App\ShopUser;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use APP\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ShopUserController;
 
 class ShopsController extends Controller
 {
@@ -127,17 +128,11 @@ class ShopsController extends Controller
         $shop->load('categories', 'created_by');
 
         // お気に入りボタン用
-        $favorite = $shop->favorites()->where('user_id', Auth::user()->id)->first();
+        $favorite = $shop->favoriteUsers()->where('user_id', Auth::user()->id)->first();
+
         // この店をお気に入りしているユーザーidを全てを取得
-        $favorite_users_ids = Favorite::where('shop_id', $shop->id)->first()->user_id;
-
-
-        if ($favorite_users_ids) {
-            $favorite_users = User::where('id', $favorite_users_ids)->first();
-            return view('admin.shops.show', compact('shop', 'days', 'favorite', 'favorite_users_ids', 'favorite_users'));
-        } else {
-            return view('admin.shops.show', compact('shop', 'days', 'favorite'));
-        }
+        $favorite_users = $shop->favoriteUsers;
+        return view('admin.shops.show', compact('shop', 'days', 'favorite', 'favorite_users'));
     }
 
     public function destroy(Shop $shop)

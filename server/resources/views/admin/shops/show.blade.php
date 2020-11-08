@@ -16,14 +16,14 @@
             <div>
                 @if (Auth::check())
                 @if ($favorite)
-                  {{ Form::model($shop, array('action' => array('FavoriteController@destroy', $shop->id, $favorite->id))) }}
+                  {{ Form::model($shop, array('action' => array('ShopUserController@destroy', $shop->id, $favorite->id))) }}
                     <button type="submit" class="btn btn-default">
                       {{-- <img src="/images/icon_heart_red.svg"> --}}
                       お気に入り解除
                     </button>
                   {!! Form::close() !!}
                 @else
-                  {{ Form::model($shop, array('action' => array('FavoriteController@store', $shop->id))) }}
+                  {{ Form::model($shop, array('action' => array('ShopUserController@store', $shop->id))) }}
                     <button type="submit" class="btn btn-default">
                       {{-- <img src="/images/icon_heart.svg"> --}}
                       お気に入り登録
@@ -115,9 +115,10 @@
             </table>
             <div>
                 <p>お気に入りしている人</p>
-                @if ($favorite_users_ids)
-                    <a href='{{ url('admin/users', $favorite_users->id) }}'>{{ $favorite_users->name }}</a>
-                @endif
+                @foreach($favorite_users as $favorite_user)
+                {{-- {{ dd($favorite_user, $favorite_users ) }} --}}
+                    <a href='{{ url('admin/users', $favorite_user->id) }}'>{{ $favorite_user->name }}</a>
+                @endforeach
             </div>
             <div class="form-group">
                 <a class="btn btn-default" href="{{ route('admin.shops.index') }}">

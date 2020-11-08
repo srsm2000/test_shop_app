@@ -59,6 +59,12 @@
                     </tr>
                 </tbody>
             </table>
+            <div>
+                <p>お気に入りしている店</p>
+                @foreach($favorite_shops as $favorite_shop)
+                    <a href='{{ url('admin/shops', $favorite_shop->id) }}'>{{ $favorite_shop->name }}</a>
+                @endforeach
+            </div>
             <div class="form-group">
                 <a class="btn btn-default" href="{{ route('admin.users.index') }}">
                     {{ trans('global.back_to_list') }}
