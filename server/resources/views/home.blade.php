@@ -19,13 +19,14 @@
                                                     <input class="search_text gd_search_text" name="search" value="{{ old('search', request()->input('search')) }}" type="text" placeholder="Search for" aria-label="Search for" autocomplete="off" />
                                                 </div>
                                                 <button class="geodir_submit_search" data-title="fas fa-search" aria-label="fas fa-search" style="background-color: #000000; border-color: #000000;"><i class="fas fas fa-search" aria-hidden="true"></i><span class="sr-only">Search</span></button><br>
-                                                    <?php $num = 1; ?>
+                                                {{-- カテゴリー選択 --}}
+                                                <?php $num = 1; ?>
                                                 @foreach($categories as $category)
                                                     <?php $input_name = "category" . $num; ?>
-                                                <div style="display:inline-block;">
-                                                    <input type="checkbox" name={{ $input_name }} id="category" value="{{ $category->id }}" style="vertical-align:middle;" >
-                                                    <label for="category">{{ $category->name }}</label>
-                                                </div>
+                                                    <div style="display:inline-block;">
+                                                        <input type="checkbox" name={{ $input_name }} id="category" value="{{ $category->id }}" style="vertical-align:middle;" >
+                                                        <label for="category">{{ $category->name }}</label>
+                                                    </div>
                                                     <?php $num = $num + 1; ?>
                                                 @endforeach
                                             </div>

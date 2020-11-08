@@ -47,6 +47,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.shop.fields.description_helper') }}</span>
             </div>
+            {{-- 写真登録 --}}
             <div class="form-group">
                 <label for="photos">{{ trans('cruds.shop.fields.photos') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('photos') ? 'is-invalid' : '' }}" id="photos-dropzone">

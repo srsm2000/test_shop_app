@@ -118,6 +118,86 @@ class Shop extends Model implements HasMedia
                 $query->whereHas('categories', function($query) {
                     $query->where('id', request()->input('category4'));
                 });
+            })
+            ->when(request()->filled('category5'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category5'));
+                });
+            })
+            ->when(request()->filled('category6'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category6'));
+                });
+            })
+            ->when(request()->filled('category7'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category7'));
+                });
+            })
+            ->when(request()->filled('category8'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category8'));
+                });
+            })
+            ->when(request()->filled('category9'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category9'));
+                });
+            })
+            ->when(request()->filled('category10'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category10'));
+                });
+            })
+            ->when(request()->filled('category11'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category11'));
+                });
+            })
+            ->when(request()->filled('category12'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category12'));
+                });
+            })
+            ->when(request()->filled('category13'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category13'));
+                });
+            })
+            ->when(request()->filled('category14'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category14'));
+                });
+            })
+            ->when(request()->filled('category15'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category15'));
+                });
+            })
+            ->when(request()->filled('category16'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category16'));
+                });
+            })
+            ->when(request()->filled('category17'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category17'));
+                });
+            })
+            ->when(request()->filled('category18'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category18'));
+                });
+            })
+            ->when(request()->filled('category19'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category19'));
+                });
+            })
+            ->when(request()->filled('category20'), function($query) {
+                $query->whereHas('categories', function($query) {
+                    $query->where('id', request()->input('category20'));
+                });
             });
     }
 

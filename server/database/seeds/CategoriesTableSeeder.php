@@ -13,35 +13,23 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'アウトドア'
+            'name' => 'メンズ'
         ]);
 
         Category::create([
-            'name' => 'スポーツ/アスレジャー'
+            'name' => 'ウィメンズ'
         ]);
 
         Category::create([
-            'name' => '古着'
+            'name' => 'インポート'
         ]);
 
         Category::create([
-            'name' => 'ファストファッション'
-        ]);
-
-        Category::create([
-            'name' => 'ラグジュアリー'
+            'name' => 'ドメスティック'
         ]);
 
         Category::create([
             'name' => 'デザイナーズ'
-        ]);
-
-        Category::create([
-            'name' => 'ラグジュアリー'
-        ]);
-
-        Category::create([
-            'name' => 'ストリート'
         ]);
 
         Category::create([
@@ -57,6 +45,30 @@ class CategoriesTableSeeder extends Seeder
         ]);
 
         Category::create([
+            'name' => 'ストリート'
+        ]);
+
+        Category::create([
+            'name' => 'アウトドア'
+        ]);
+
+        Category::create([
+            'name' => 'スポーツ'
+        ]);
+
+        Category::create([
+            'name' => '古着'
+        ]);
+
+        Category::create([
+            'name' => 'ファストファッション'
+        ]);
+
+        Category::create([
+            'name' => 'ラグジュアリー'
+        ]);
+
+        Category::create([
             'name' => 'アクセサリー'
         ]);
 
@@ -66,14 +78,6 @@ class CategoriesTableSeeder extends Seeder
 
         Category::create([
             'name' => '小物'
-        ]);
-
-        Category::create([
-            'name' => 'ドメスティック'
-        ]);
-
-        Category::create([
-            'name' => 'インポート'
         ]);
     }
 }
