@@ -14,7 +14,7 @@ Route::get('shop/{shop}', 'HomeController@show')->name('shop');
 
 // お気に入り機能
 Route::post('/posts/{shop}/favorites', 'ShopUserController@store');
-Route::post('/posts/{shop}/favorites/{favorite}', 'ShopUserController@destroy');
+Route::post('/posts/{shop}/favorites/{user}', 'ShopUserController@destroy');
 
 Auth::routes();
 

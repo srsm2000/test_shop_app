@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Shop;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,10 @@ class HomeController extends Controller
     public function show(Shop $shop)
     {
         $shop->load(['categories', 'days']);
+        // お気に入りボタン用
+        $favorite = $shop->favoriteUsers()->where('user_id', Auth::user()->id)->first();
 
-        return view('shop', compact('shop'));
+        return view('shop', compact('shop', 'favorite'));
     }
 
     public function top_page()
