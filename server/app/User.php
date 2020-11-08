@@ -87,9 +87,14 @@ class User extends Authenticatable
     }
 
     // お気に入り登録ここから
-    public function likes()
+    public function favoriteShops()
     {
-        return $this->hasMany(Favorite::class);
+        return $this->belongsToMany('App\Shop');
+    }
+
+    public function relationshipWithShops()
+    {
+        return $this->hasMany('App\ShopUser');
     }
 
     public function followed_shop()

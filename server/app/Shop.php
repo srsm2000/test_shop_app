@@ -122,19 +122,19 @@ class Shop extends Model implements HasMedia
     }
 
     // お気に入り登録ここから
-    public function user()
+    public function favoriteUsers()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany('App\User');
     }
 
-    public function favorites()
+    public function relationshipWithUsers()
     {
-        return $this->hasMany('App\Favorite');
+        return $this->hasMany('App\ShopUser');
     }
 
     public function favorite_by()
     {
-        return Favorite::where('user_id', \Auth::user()->id);
+        return ShopUser::where('user_id', \Auth::user()->id);
     }
 
     public function favorite_user($favorite_user_id)
